@@ -2,6 +2,8 @@ package main.java;
 
 public class MLOG
 {
+    public static final String CounterIdentifier="@counter";
+    
     public static final String AddOperation = "add";
     public static final String SubOperation = "sub";
     public static final String MulOperation = "mul";

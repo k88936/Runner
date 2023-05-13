@@ -1,7 +1,7 @@
 package main.java;
 import java.util.*;
 
-public class Instruction
+public abstract class Instruction
 {
     public Instruction (Variable... Operands){
      addOperand(Operands);
@@ -16,5 +16,10 @@ public class Instruction
         this.Operands.add(Operand);
         return this;
     }
+    public Variable opd(int index){
+        return Operands.get(index);
+    }
     ArrayList<Variable> Operands=new ArrayList<>();
+    Module module;
+    abstract void execute();
 }

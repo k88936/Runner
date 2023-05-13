@@ -21,8 +21,8 @@ public class Parser
                 case "set":
                     {
                         module.addInst(new SetInstruction(
-                                           Variable.get(lineContent[1]),
-                                           Variable.get(lineContent[2])));
+                                           module.getVar(lineContent[1]),
+                                           module.getVar(lineContent[2])));
                         break;
                     }
 
@@ -32,8 +32,8 @@ public class Parser
                         module.addInst(
                             new ALUInstruction(
                                 lineContent[1],
-                                Variable.get(lineContent[2]),
-                                Utils.getVars((lineContent), 2)
+                                module.getVar(lineContent[2]),
+                                module.getVars((lineContent), 2)
                             ));
 
                         break;
@@ -43,23 +43,23 @@ public class Parser
                         module.addInst(new JmpInstruction(
                                            lineContent[1],
                                            lineContent[2],
-                                           Variable.get(lineContent, 3),
-                                           Variable.get(lineContent, 4)
+                                           module.getVar(lineContent, 3),
+                                           module.getVar(lineContent, 4)
                                        ));
                         break;
                     }
                 case "read":{
                         module.addInst(new ReadInstruction(
-                                           Variable.get(lineContent[1]),
-                                           Variable.get(lineContent[2]),
-                                           Variable.get(lineContent[3])));
+                                           module.getVar(lineContent[1]),
+                                           module.getVar(lineContent[2]),
+                                           module.getVar(lineContent[3])));
                         break;
                     }
                 case "write":{
                         module.addInst(new WriteInstruction(
-                                           Variable.get(lineContent[1]),
-                                           Variable.get(lineContent[2]),
-                                           Variable.get(lineContent[3])));
+                                           module.getVar(lineContent[1]),
+                                           module.getVar(lineContent[2]),
+                                           module.getVar(lineContent[3])));
                         break;
                     }
 

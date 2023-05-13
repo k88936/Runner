@@ -5,21 +5,22 @@ public class Variable
 {
    public Variable(String name){
        this.name=name;
-       Variables.put(name,this);
    }
+   
    String name;
-   static Variable get(String name){
-       
-       if (Variables.containsKey(name)){
-           return Variables.get(name);
-       }else{
-           return new Variable(name);
-       }
+   double value=0;
+   Mobject pointer=null;
+   public Variable setValue(Variable var){
+       this.value=var.value;
+       this.pointer=var.pointer;
+       return this;
    }
-    static Variable get(String[] s,int index){
 
-        if(index >=s.length)return null;
-        return get(s[index]);
-    }
-   static HashMap<String,Variable> Variables=new HashMap<>();
-}
+   @Override
+   public String toString()
+   {
+       if(this.pointer!=null)return pointer.toString();
+       return  String.valueOf(value);
+   }
+   
+   }

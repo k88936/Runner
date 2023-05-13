@@ -2,6 +2,13 @@ package main.java;
 
 public class ALUInstruction extends Instruction
 {
+
+    @Override
+    void execute()
+    {
+        // TODO: Implement this method
+    }
+
     public ALUInstruction (String op,Variable result,Variable v1,Variable v2){
         super(result,v1,v2);
         this.op=op;
