@@ -10,27 +10,14 @@ public class Processor extends Block
         this.module=module;
         Counter=module.getVar(MLOG.CounterIdentifier);
     }
-    public void execute(){
-        
-        new Runnable(){
-
-            @Override
-            public void run()
-            {
-                while(onRun){
-                    
-                    int value = (int)Counter.value;
-                    if (value>=module.insts.size()||value<0){
-                        value=0;
-                        Counter.value=0;
-                    }
-                    module.insts.get(value).execute();
-                    
-                }
-            }
-            
-            
-        }.run();
+    public void step(){
+        int value = (int)Counter.value;
+        if (value>=module.insts.size()||value<0){
+            value=0;
+            Counter.value=0;
+        }
+        module.insts.get(value).execute();
+       
         
             
         

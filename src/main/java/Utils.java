@@ -13,21 +13,23 @@ public class Utils
         }
         return str;
     }
-    public static String mapPrint(Map map){
+    public static String mapPrint(HashMap map){
         StringBuilder jsonBuilder = new StringBuilder();
         jsonBuilder.append("{");
-        for (Map.Entry entry : map.entrySet()) {
-            jsonBuilder.append("\"")
-                .append(entry.getKey())
-                .append("\":\"")
-                .append(entry.getValue())
-                .append("\",");
-        }
+        
+       
+     for (Map.Entry<Object,Object> entry : map.entrySet())  {
+         jsonBuilder.append("\n\t\"")
+         .append(entry.getKey())
+        .append("\":\"")      
+        .append(entry.getValue())
+           .append("\",");
+           }
         if (!map.isEmpty()) {
             // Remove trailing comma
             jsonBuilder.deleteCharAt(jsonBuilder.length() - 1);
         }
-        jsonBuilder.append("}");
+        jsonBuilder.append("\n}");
 
         return jsonBuilder.toString();
     }

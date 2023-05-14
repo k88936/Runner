@@ -5,24 +5,28 @@ public class Parser
 {
 
     Module module=new Module();
-    void parse(DataInputStream code) throws IOException
+    public Module parse(DataInputStream code) throws IOException
     {
 
         String line;
         String[] lineContent;
 
-        while ((line = code.readLine()) != null)
+        while ((line = code.readLine()) != null&&line!="#end"&&line!="")
         {
+//            System.out.println(line);
 
-            lineContent = line.split("\b");
+            lineContent = line.split(" ");
             String symbol = lineContent[0];
+//            System.out.println( symbol);
             switch (symbol)
             {
+                
                 case "set":
                     {
                         module.addInst(new SetInstruction(
                                            module.getVar(lineContent[1]),
                                            module.getVar(lineContent[2])));
+//                                           System.out.println(module);
                         break;
                     }
 
@@ -80,6 +84,7 @@ public class Parser
 
             }
         }
+        return this.module;
     }
 
 

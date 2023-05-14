@@ -20,6 +20,14 @@ public class Module
     
      Variable getVar(String name){
 
+      
+         try
+         {
+             return new Variable(    Double.parseDouble(name));
+         }
+         catch (NumberFormatException e)
+         {}
+
         if (this.Variables.containsKey(name)){
             return this.Variables.get(name);
         }else{

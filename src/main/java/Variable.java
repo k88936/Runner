@@ -6,6 +6,9 @@ public class Variable
    public Variable(String name){
        this.name=name;
    }
+   public  Variable(double value){
+       this.value=value;
+   }
    
    String name;
    double value=0;
